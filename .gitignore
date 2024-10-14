@@ -1,1 +1,3 @@
 config/config.go
+go.mod
+go.summ
