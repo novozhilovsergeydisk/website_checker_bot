@@ -69,3 +69,4 @@ sudo systemctl stop website_checker_bot.service
 
 ## Logging
 
+sudo journalctl -u website_checker_bot.service
