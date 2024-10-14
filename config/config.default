@@ -1,0 +1,33 @@
+package config
+
+import (
+    "time"
+    "os"
+)
+
+type Config struct {
+    TelegramToken string
+    Websites      []string
+    CheckInterval time.Duration
+}
+
+func LoadConfig() *Config {
+    token := os.Getenv("TELEGRAM_BOT_TOKEN")
+    if token == "" {
+        panic("TELEGRAM_BOT_TOKEN environment variable is not set")
+    }
+
+    websites := []string{
+        "https://example.com",
+        "https://google.com",
+        "https://github.com",
+    }
+
+    interval := 5 * time.Minute
+
+    return &Config{
+        TelegramToken: token,
+        Websites:      websites,
+        CheckInterval: interval,
+    }
+}
